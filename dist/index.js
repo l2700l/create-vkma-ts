@@ -27,7 +27,9 @@ const init = () => __awaiter(void 0, void 0, void 0, function* () {
     const currentDirectory = process.cwd();
     const destinationPath = path_1.default.join(currentDirectory, appname !== null && appname !== void 0 ? appname : 'vkma');
     try {
+        console.log('Downloading template...');
         yield downloadTemplate(templateRepoUrl, destinationPath);
+        console.log('Template downloaded successfully!');
         instruction(appname !== null && appname !== void 0 ? appname : 'vkma');
     }
     catch (error) {
@@ -42,7 +44,6 @@ const downloadTemplate = (templateUrl, destinationPath) => __awaiter(void 0, voi
     }
 });
 const instruction = (appname) => {
-    console.log('Template downloaded successfully!');
     console.log();
     console.log('Next steps:');
     console.log('1. cd', appname);

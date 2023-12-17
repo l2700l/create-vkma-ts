@@ -15,7 +15,9 @@ const init = async () => {
   const currentDirectory = process.cwd();
   const destinationPath = path.join(currentDirectory, appname ?? 'vkma');
   try {
+    console.log('Downloading template...');
     await downloadTemplate(templateRepoUrl, destinationPath);
+    console.log('Template downloaded successfully!');
     instruction(appname ?? 'vkma');
   } catch (error) {
     console.error('Error downloading template:', error);
@@ -34,7 +36,6 @@ const downloadTemplate = async (
 };
 
 const instruction = (appname: string) => {
-  console.log('Template downloaded successfully!');
   console.log();
   console.log('Next steps:');
   console.log('1. cd', appname);
