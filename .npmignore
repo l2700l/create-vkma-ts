@@ -1,0 +1,6 @@
+src
+node_modules
+LICENSE
+tsconfig.json
+.eslintrc.json
+.prettierrc.json
