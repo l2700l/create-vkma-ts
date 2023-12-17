@@ -36,11 +36,17 @@ const downloadTemplate = async (
 };
 
 const instruction = (appname: string) => {
+  const userAgent = process.env.npm_config_user_agent ?? '';
+  const packageManager = /pnpm/.test(userAgent)
+    ? 'pnpm'
+    : /yarn/.test(userAgent)
+      ? 'yarn'
+      : 'npm';
   console.log();
   console.log('Next steps:');
   console.log('1. cd', appname);
-  console.log('2. npm install');
-  console.log('3. npm run dev');
+  console.log('2.', packageManager, 'install');
+  console.log('3.', packageManager, 'run dev');
   console.log();
   console.log('Happy coding!');
 };

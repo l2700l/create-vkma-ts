@@ -44,11 +44,18 @@ const downloadTemplate = (templateUrl, destinationPath) => __awaiter(void 0, voi
     }
 });
 const instruction = (appname) => {
+    var _a;
+    const userAgent = (_a = process.env.npm_config_user_agent) !== null && _a !== void 0 ? _a : '';
+    const packageManager = /pnpm/.test(userAgent)
+        ? 'pnpm'
+        : /yarn/.test(userAgent)
+            ? 'yarn'
+            : 'npm';
     console.log();
     console.log('Next steps:');
     console.log('1. cd', appname);
-    console.log('2. npm install');
-    console.log('3. npm run dev');
+    console.log('2.', packageManager, 'install');
+    console.log('3.', packageManager, 'run dev');
     console.log();
     console.log('Happy coding!');
 };
